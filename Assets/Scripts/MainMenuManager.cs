@@ -1,23 +1,33 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    /*////////////////////////////////////////   
-            kód pro fukční menu
-    /*////////////////////////////////////////   
-    public void LoadGame(string sceneName)
+    public GameObject mainMenuPanel;
+    public GameObject settingsPanel;
+    public GameObject creditsPanel;
+
+    public void NewGame()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("GameScene");
+    }
+    
+    public void OpenSettings()
+    {
+        mainMenuPanel.SetActive(false);
+        settingsPanel.SetActive(true);
     }
 
-    public void QuitApplication(string sceneName)
+    public void BackToMainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+
+    public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void LoadSettings(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
     }
 }
