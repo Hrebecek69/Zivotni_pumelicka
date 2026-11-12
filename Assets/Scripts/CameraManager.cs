@@ -57,4 +57,16 @@ public class CameraManager : MonoBehaviour
 
         cinemachineCamera.Lens.OrthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
     }
+
+    public void FocusOnCharacter(Transform targetTransform)
+    {
+        if (targetTransform != null && cameraTarget != null)
+        {
+            cameraTarget.transform.position = new Vector3(
+            targetTransform.position.x,
+            cameraTarget.transform.position.y,
+            targetTransform.position.z
+        );
+        }
+    }
 }
