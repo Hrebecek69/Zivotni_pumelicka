@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject gameOptionsPanel;
-    public GameObject mainMenuPanel;
-    public GameObject settingsPanel;
+    [SerializeField] private GameObject gameOptionsPanel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject settingsPanel;
     public string gameScene;
 
     private void Start()
@@ -41,8 +41,7 @@ public class MainMenuManager : MonoBehaviour
     {
         mainMenuPanel.SetActive(true);
         settingsPanel.SetActive(false);
-        gameOptionsPanel.SetActive(false);
-        
+        gameOptionsPanel.SetActive(false);   
     }
 
     public void QuitGame()
