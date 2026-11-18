@@ -1,13 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenuPanel;
     [SerializeField] private GameObject SettingsMenuPanel;
 
+    private void Start()
+    {
+        PauseMenuPanel.SetActive(false);
+        SettingsMenuPanel.SetActive(false);
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             OpenPauseMenu();
         }
