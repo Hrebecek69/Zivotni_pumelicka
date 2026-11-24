@@ -4,30 +4,30 @@ using UnityEngine.InputSystem;
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenuPanel;
-    [SerializeField] private GameObject SettingsMenuPanel;
 
     private void Start()
     {
         PauseMenuPanel.SetActive(false);
-        SettingsMenuPanel.SetActive(false);
     }
     private void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && !PauseMenuPanel.activeSelf)
         {
             OpenPauseMenu();
+        } 
+        else if (Keyboard.current.escapeKey.wasPressedThisFrame && PauseMenuPanel.activeSelf)
+        {
+            ClosePauseMenu();
         }
     }
 
     private void OpenPauseMenu()
     {
         PauseMenuPanel.SetActive(true);
-        SettingsMenuPanel.SetActive(false);
     }
 
-    public void OpenSettings()
+    private void ClosePauseMenu()
     {
         PauseMenuPanel.SetActive(false);
-        SettingsMenuPanel.SetActive(true);
     }
 }
